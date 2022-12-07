@@ -24,7 +24,10 @@ function PizzaBlock({ title, price, imageUrl, sizes, types }) {
         <ul>
           {sizes.map((size, i) => {
             return (
-              <li className={i === activeSize ? 'active' : ''} onClick={() => setActiveSize(i)}>
+              <li
+                key={i}
+                className={i === activeSize ? 'active' : ''}
+                onClick={() => setActiveSize(i)}>
                 {size} см
               </li>
             );
