@@ -1,19 +1,26 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSort } from '../redux/slices/filterSlice';
 
-function Sort({ value, onChangeSort }) {
+export const sortList = [
+  { name: 'Rating (DESC)', sortProperty: 'rating' },
+  { name: 'Rating (ASC)', sortProperty: '-rating' },
+  { name: 'Price (DESC)', sortProperty: 'price' },
+  { name: 'Price (ASC)', sortProperty: '-price' },
+  { name: 'Alphabetically (DESC)', sortProperty: 'title' },
+  { name: 'Alphabetically (ASC)', sortProperty: '-title' },
+];
+
+function Sort() {
+  const dispatch = useDispatch();
+  const sort = useSelector((state) => state.filter.sort);
   const [open, setOpen] = useState(false);
-  const list = [
-    { name: 'Rating (DESC)', sortProperty: 'rating' },
-    { name: 'Rating (ASC)', sortProperty: '-rating' },
-    { name: 'Price (DESC)', sortProperty: 'price' },
-    { name: 'Price (ASC)', sortProperty: '-price' },
-    { name: 'Alphabetically (DESC)', sortProperty: 'title' },
-    { name: 'Alphabetically (ASC)', sortProperty: '-title' },
-  ];
-  const onClickListItem = (index) => {
-    onChangeSort(index);
+
+  const onClickListItem = (obj) => {
+    dispatch(setSort(obj));
     setOpen(false);
   };
+
   return (
     <div className="sort">
       <div className="sort__label">
@@ -29,16 +36,16 @@ function Sort({ value, onChangeSort }) {
           />
         </svg>
         <b>Sort By:</b>
-        <span onClick={() => setOpen(!open)}>{value.name}</span>
+        <span onClick={() => setOpen(!open)}>{sort.name}</span>
       </div>
       {open && (
         <div className="sort__popup">
           <ul>
-            {list.map((obj, i) => {
+            {sortList.map((obj, i) => {
               return (
                 <li
                   key={i}
-                  className={value.sortProperty === obj.sortProperty ? 'active' : ''}
+                  className={sort.sortProperty === obj.sortProperty ? 'active' : ''}
                   onClick={() => onClickListItem(obj)}>
                   {obj.name}
                 </li>
