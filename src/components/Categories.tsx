@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function Categories({ value, onChangeCategory }) {
-  const categories = ['all', 'meat', 'vegeterian', 'grill', 'grill', 'grill'];
+type CategoriesProps = {
+  value: number;
+  onChangeCategory: (idx: number) => void;
+};
+
+const categories = ['all', 'meat', 'vegeterian', 'grill'];
+
+const Categories: React.FC<CategoriesProps> = ({ value, onChangeCategory }) => {
   return (
     <div className="categories">
       <ul>
@@ -15,5 +21,5 @@ function Categories({ value, onChangeCategory }) {
       </ul>
     </div>
   );
-}
+};
 export default Categories;
