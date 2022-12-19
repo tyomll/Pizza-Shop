@@ -1,4 +1,5 @@
 {
+  "homepage": "pizza",
   "name": "pizza",
   "version": "0.1.0",
   "private": true,
@@ -28,6 +29,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -51,6 +54,7 @@
     ]
   },
   "devDependencies": {
-    "@types/lodash.debounce": "^4.0.7"
+    "@types/lodash.debounce": "^4.0.7",
+    "gh-pages": "^4.0.0"
   }
 }
