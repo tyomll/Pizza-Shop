@@ -17,7 +17,7 @@ To get the project up and running on your local machine, you will need to have N
 1. Clone the repository:
 
 ```sh
-git clone https://github.com/username/online-pizza-store.git
+git clone https://github.com/tyommmm/pizza.git
 ```
 2. Install the dependencies:
 ```sh
