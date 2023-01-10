@@ -38,6 +38,4 @@ If you would like to contribute to this project, please fork the repository and 
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
-```sh
-Please note that this is just a sample, please review the instructions, add or remove features, or adjust the language as needed for your specific case.
-```
+
